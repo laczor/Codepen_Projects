@@ -1,0 +1,67 @@
+
+@import "./_talkBubbles.scss";
+/*--------------------
+DropIn Animation
+--------------------*/
+@mixin dropIn {
+  -webkit-transform: translate(0,60px);
+  transform: translate(0,30px);
+  /* Optionally, we animate the drawer. */
+  transition: transform 0.7s ease-in-out;
+}
+
+@mixin choice{
+		position: absolute;
+		bottom: 50px;
+		width: 30%;
+		font-size: 20px;
+		font-size: 500;
+
+}
+@mixin choiceBox {
+/*needed for the dropin translation*/
+  position: relative;
+  transform:translate(0,-900px);
+  width: 99%;
+  max-width: 550px;
+  height: 70vh;
+  max-height: 550px;
+  margin: 0 auto;
+  &.dropIn{
+    @include dropIn;
+  }
+}
+
+
+.choice-box{
+	@include choiceBox;
+	& h1{
+		text-align: center;
+		color:white;
+	}
+}
+
+.choice_left{
+	@include choice;
+	left:50px;
+},
+.choice_right{
+	@include choice;
+	right: 10px;
+}
+
+/*Aligning left choice to Mobile*/
+@media screen and (max-width: 500px){
+	.choice_left{
+		left:-5px;
+	}
+}
+
+@media screen and (min-width: 600px){
+	.choice-box{
+		.choice_rigth{
+			right:80px;
+		}
+	}
+}
+

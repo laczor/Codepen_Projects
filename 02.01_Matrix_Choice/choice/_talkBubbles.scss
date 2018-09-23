@@ -1,0 +1,94 @@
+
+@mixin btmBefore{
+	   content: ' ';
+		position: absolute;
+		width: 0;
+		height: 0;
+		bottom: -41px;
+		border: 20px solid;
+}
+
+@mixin btmAfter{
+		content: ' ';
+		position: absolute;
+		width: 0;
+		height: 0;
+		border: 12px solid;
+}
+/* CSS talk bubble */
+.talk-bubble {
+    display: inline-block;
+    position: relative;
+	width: 100px;
+	height: auto;
+	background-color: rgba(0, 0, 0, .5);;
+	border: 8px solid darkturquoise;
+	border-radius: 20px;
+	box-shadow: 0 5px 30px rgba(0, 0, 0, .2);
+  	color:white;
+  	&.btm-left-in{
+		border: 8px solid orangered;
+  	}
+  	&.btm-right-in{
+		border: 8px solid darkturquoise;
+  	}
+ 	&.btm-left-in:after{
+		@include btmAfter;
+		left: 38px;
+	    right: auto;
+	    top: auto;
+		bottom: -20px;
+		border: 12px solid;
+		border-color:  rgba(0, 0, 0, .3) transparent transparent  rgba(0, 0, 0, .3);
+	}
+	&.btm-left-in:before{
+		@include btmBefore;
+		left: 30px;
+	    right: auto;
+	    top: auto;
+	    border-color: orangered transparent transparent orangered;
+
+	}
+	&.btm-right-in:before{
+		@include btmBefore;
+		 	left: auto;
+			right: 10px;
+			bottom: -41px;
+			border: 20px solid;
+			border-color: darkturquoise darkturquoise transparent transparent;
+		}
+	&.btm-right-in:after{
+		@include btmAfter;
+		    left: auto;
+			right: 15px;
+			bottom: -22px;
+			border: 12px solid;
+			border-color:  rgba(0, 0, 0, .3)  rgba(0, 0, 0, .3) transparent transparent;
+	}
+	button{
+		background: none;
+	    border: none;
+	    outline: none;
+	    color: white;
+	    font-size: 20px;
+	}
+}
+
+/* talk bubble contents */
+.talktext{
+  padding: 0.5em;
+  text-align: center;
+  line-height: 1.5em;
+}
+
+/*Changing the choice sizes for desktop*/
+@media screen and (min-width: 500px){
+	.talk-bubble{
+		width: 200px;
+		height: 100px;
+	}
+	.talktext{
+		padding: 1.1em;
+	}
+
+}
