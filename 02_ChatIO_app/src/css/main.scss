@@ -1,0 +1,24 @@
+
+/*This is for the basic body css
+	- Background gradient
+	- bg class image as background
+*/
+@import "./base/_body.scss";
+
+/*
+This is for the chat box + its layout
+	- Chatbox is centralized, layout is flex,column
+	- Chat-title is made with the avatar
+	- Messages.scss is imported here
+*/
+@import "./base/chat/_chat.scss";
+
+/*
+This is for the welcome page choice
+
+*/
+
+@import "./base/customScroll/_customScrollMain.scss";
+@import "./base/customScroll/_customScrollBar.scss";
+
+
